@@ -1,5 +1,7 @@
 @using Tamagotchi.Models;
 @using Tamagotchi.Controllers;
+@using Microsoft.AspNetCore.Html;
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <style>
         .btn-container {
+            display: flex;
             margin-top: 10px;
         }
 
@@ -21,15 +24,36 @@
         @foreach (Pet pet in Model)
         {
             <p>Your tamagotchi: @pet.name</p>
+        
+            <img src="https://www.throwbacks.com/content/images/2018/01/2592637242352b7ec06e497a315fac7f.gif" />
+            <div class="container btn-container"> 
+                <form action="/items" method="post">
+                    <button class="btn btn-primary" value="eatFood" onClick="@Functions.Food()">Feed</button>
+               
+                    <button class="btn btn-secondary" value="playWith">Play</button>
+              
+                    <button class="btn btn-dark" value="sleepyTime">Sleep</button>
+                
+                    <button class="btn btn-danger" value="PassTime">Pass Time</button>
+                </form>
+            </div>
+
+            <p>@pet.name's status</p>
+            <p>Food: @pet.foodLvl</p>
+            <p>Play: @pet.playLvl</p>
+            <p>Sleep: @pet.restLvl</p>
+            <hr>
         }
 
-        <img src="https://www.throwbacks.com/content/images/2018/01/2592637242352b7ec06e497a315fac7f.gif" />
-        <div class="container btn-container"> 
-            <button class="btn btn-primary">Feed</button>
-            <button class="btn btn-secondary">Play</button>
-            <button class="btn btn-dark">Sleep</button>
-            <button class="btn btn-danger">Pass Time</button>
-        </div>
+        @functions {
+            public static void Food()
+            {
+                foodLvl += 2;
+                playLvl--;
+                restLvl--;
+            }
+        }
+
     </div>
    
   </body>

@@ -61,7 +61,7 @@ namespace Tamagotchi.Models
         public bool IsDead()
         {
             if (foodLvl <= 0|| playLvl <= 0 || restLvl <= 0)
-                return dead = true;
+                dead = true;
             return dead;
         }
     }
