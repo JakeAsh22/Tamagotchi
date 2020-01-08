@@ -4,15 +4,33 @@
 <html>
   <head>
     <title></title>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .btn-container {
+            margin-top: 10px;
+        }
+
+        .btn {
+            margin-right: 20px;
+        }
+    </style>
   </head>
   <body>
     <h1>Tamagotchi</h1>
-    @foreach (Pet pet in Model)
-    {
-        <p>Your tamagotchi: @pet.name</p>
-    }
-    <a href="/items/new">Add more tamagotchi💩</a>
+    <div class="container">
+        @foreach (Pet pet in Model)
+        {
+            <p>Your tamagotchi: @pet.name</p>
+        }
+
+        <img src="https://www.throwbacks.com/content/images/2018/01/2592637242352b7ec06e497a315fac7f.gif" />
+        <div class="container btn-container"> 
+            <button class="btn btn-primary">Feed</button>
+            <button class="btn btn-secondary">Play</button>
+            <button class="btn btn-dark">Sleep</button>
+            <button class="btn btn-danger">Pass Time</button>
+        </div>
+    </div>
    
   </body>
 </html>
