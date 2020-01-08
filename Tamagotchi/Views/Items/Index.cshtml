@@ -1,0 +1,18 @@
+@using Tamagotchi.Models;
+@using Tamagotchi.Controllers;
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  </head>
+  <body>
+    <h1>Tamagotchi</h1>
+    @foreach (Pet pet in Model)
+    {
+        <p>Your tamagotchi: @pet.name</p>
+    }
+    <a href="/items/new">Add more tamagotchi💩</a>
+   
+  </body>
+</html>

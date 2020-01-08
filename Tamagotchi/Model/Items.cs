@@ -1,4 +1,5 @@
-using System;
+using System.Collections.Generic;
+
 
 namespace Tamagotchi.Models
 {
@@ -8,13 +9,27 @@ namespace Tamagotchi.Models
         public int playLvl { get; set; }
         public int restLvl { get; set; }
         public bool dead { get; set; }
+        public string name { get; set; }
+        private static List<Pet> _instances = new List<Pet> {};
 
-        public Pet ()
+        public Pet (string userInput)
         {
             foodLvl = 10;
             playLvl = 10;
             restLvl = 8;
             dead = false;
+            name = userInput;
+            _instances.Add(this);
+        }
+
+        public static List<Pet> GetAll()
+        {
+            return _instances;
+        }
+
+        public static void ClearAll()
+        {
+            _instances.Clear();
         }
 
         public void Food()
